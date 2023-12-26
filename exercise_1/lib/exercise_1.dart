@@ -1,4 +1,5 @@
-void drawingSquare(int squareSize) {
+int drawingSquare(int squareSize) {
+  if (squareSize <= 0) return 0;
   String horizontalLine = ' ---' * squareSize;
   String verticalLine = '|   ' * (squareSize + 1);
 
@@ -7,4 +8,5 @@ void drawingSquare(int squareSize) {
     print(verticalLine);
   }
   print(horizontalLine);
+  return 1;
 }
