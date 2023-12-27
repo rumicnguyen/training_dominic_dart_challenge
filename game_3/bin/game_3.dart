@@ -3,7 +3,6 @@ import 'package:game_3/game_3.dart' as game_3;
 void main(List<String> arguments) {
   int bulls = 0, cows = 0;
   var random = game_3.random();
-  // print('${random[1]}${random[2]}${random[3]}${random[4]}');
   print('''Welcome to Cows and Bulls\nType 'exit' to stop the game''');
   do {
     int attempts = game_3.choice();
