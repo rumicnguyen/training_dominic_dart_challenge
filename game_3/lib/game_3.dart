@@ -18,13 +18,15 @@ Map<int, int> random() {
 }
 
 int choice() {
+  stdout.write('Please choose a four digit number:');
   String? input;
   do {
-    stdout.write('Please choose a four digit number:');
     input = stdin.readLineSync();
-    if (input! == 'exit') return -1;
-
-    if (int.tryParse(input)! > 999 && int.tryParse(input)! < 10000) {
+    if (input! == 'exit') {
+      return -1;
+    } else if (int.tryParse(input) != null &&
+        int.tryParse(input)! > 999 &&
+        int.tryParse(input)! < 10000) {
       return int.tryParse(input)!;
     }
     print('Incorrect number. Make sure to give 4 digit number.');
