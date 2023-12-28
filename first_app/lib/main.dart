@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
       create: (context) => MyAppState(),
       child: MaterialApp(
         title: 'Namer App',
-        // theme: ThemeData(
-        //   useMaterial3: true,
-        //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        // ),
+        theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        ),
         home: const MyHomePage(),
         debugShowCheckedModeBanner: false,
       ),
