@@ -1,4 +1,3 @@
-import 'package:english_words/english_words.dart';
 import 'package:first_app/src/features/favorite/logic/favorite_bloc.dart';
 import 'package:first_app/src/features/favorite/logic/favorite_state.dart';
 import 'package:first_app/src/features/favorite/view/favorite_view.dart';
@@ -9,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widget/big_cart.dart';
 
-// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
