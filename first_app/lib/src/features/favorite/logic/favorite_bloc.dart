@@ -1,16 +1,19 @@
 import 'package:english_words/english_words.dart';
+import 'package:first_app/src/features/favorite/logic/favorite_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FavoriteBloc extends Cubit<List<WordPair>> {
-  FavoriteBloc() : super([]);
+class FavoriteBloc extends Cubit<FavoriteState> {
+  FavoriteBloc() : super(FavoriteState.ds());
 
   void removeFavoriteItem(WordPair pair) {
-    state.remove(pair);
-    emit(state);
+    List<WordPair> list = List.from(state.wordPairs);
+    list.remove(pair);
+    emit(state.copyWith(wordPairs: list));
   }
 
   void insertFavoriteItem(WordPair pair) {
-    state.contains(pair) ? state.remove(pair) : state.add(pair);
-    emit(state);
+    List<WordPair> list = List.from(state.wordPairs);
+    list.contains(pair)? list.remove(pair): list.add(pair);
+    emit(state.copyWith(wordPairs: list));
   }
 }

@@ -1,29 +1,17 @@
 import 'package:english_words/english_words.dart';
 import 'package:first_app/src/features/favorite/logic/favorite_bloc.dart';
+import 'package:first_app/src/features/favorite/logic/favorite_state.dart';
 import 'package:first_app/src/features/favorite/view/favorite_view.dart';
+import 'package:first_app/src/features/home/logic/home_bloc.dart';
+import 'package:first_app/src/features/home/logic/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widget/big_cart.dart';
 
 // ignore: must_be_immutable
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  WordPair pair = WordPair.random();
-  List<WordPair> favorites = [];
-  late FavoriteBloc _favoriteCubit;
-
-  @override
-  void initState() {
-    super.initState();
-    _favoriteCubit = BlocProvider.of(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,45 +20,52 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            BigCard(pair: pair),
+            const BigCard(),
             const SizedBox(height: 10),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                BlocBuilder<FavoriteBloc, List<WordPair>>(
-                    builder: (context, state) {
-                  return ElevatedButton.icon(
+            BlocBuilder<HomeBloc, HomeState>(builder: (contextHome, stateHome) {
+              return Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  BlocBuilder<FavoriteBloc, FavoriteState>(
+                      buildWhen: (previous, current) =>
+                          previous.wordPairs != current.wordPairs,
+                      builder: (context, state) {
+                        return ElevatedButton.icon(
+                          onPressed: () {
+                            context
+                                .read<FavoriteBloc>()
+                                .insertFavoriteItem(stateHome.wordPair);
+                          },
+                          // icon: Icon(icon),
+                          icon: Icon(state.isFavorite(stateHome.wordPair)
+                              ? Icons.favorite
+                              : Icons.favorite_border),
+                          label: const Text('Like'),
+                        );
+                      }),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
                     onPressed: () {
-                      _favoriteCubit.insertFavoriteItem(pair);
-                      favorites = state;
+                      context.read<HomeBloc>().generateWordPair();
                     },
-                    // icon: Icon(icon),
-                    icon: Icon(state.contains(pair)
-                        ? Icons.favorite
-                        : Icons.favorite_border),
-                    label: const Text('Like'),
-                  );
-                }),
-                const SizedBox(width: 10),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      pair = WordPair.random();
-                    });
-                  },
-                  child: const Text('Next'),
-                ),
-              ],
-            ),
+                    child: const Text('Next'),
+                  ),
+                ],
+              );
+            }),
             const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => FavoritesPage(
-                            favorites: favorites,
-                          )),
+                      // builder: (context) => const FavoritesPage()),
+                      builder: (_) {
+                    return BlocProvider.value(
+                      value: BlocProvider.of<FavoriteBloc>(context),
+                      child: const FavoritesPage(),
+                    );
+                  }),
                 );
               },
               child: const Text('-> Go to Favorites Page'),

@@ -1,5 +1,5 @@
-import 'package:english_words/english_words.dart';
 import 'package:first_app/src/features/favorite/logic/favorite_bloc.dart';
+import 'package:first_app/src/features/home/logic/home_bloc.dart';
 import 'package:first_app/src/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,16 +13,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var current = WordPair.random();
-  var favorites = <WordPair>[];
-
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        return FavoriteBloc();
-      },
-      child: const HomePage(),
-    );
+    return const HomePage();
   }
 }

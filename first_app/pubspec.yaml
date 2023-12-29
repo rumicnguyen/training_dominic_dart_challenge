@@ -18,6 +18,7 @@ dependencies:
   go_router: ^13.0.0
   get_it: ^7.6.4
   provider: ^6.1.1
+  equatable: ^2.0.5
 
 dev_dependencies:
   flutter_test:
