@@ -1,6 +1,6 @@
 import 'package:first_app/src/features/home/view/home_view.dart';
 import 'package:flutter/material.dart';
-// ignore: must_be_immutable
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 

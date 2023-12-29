@@ -34,7 +34,6 @@ class HomePage extends StatelessWidget {
                                 .read<FavoriteBloc>()
                                 .insertFavoriteItem(stateHome.wordPair);
                           },
-                          // icon: Icon(icon),
                           icon: Icon(state.isFavorite(stateHome.wordPair)
                               ? Icons.favorite
                               : Icons.favorite_border),
@@ -57,7 +56,6 @@ class HomePage extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      // builder: (context) => const FavoritesPage()),
                       builder: (_) {
                     return BlocProvider.value(
                       value: BlocProvider.of<FavoriteBloc>(context),
