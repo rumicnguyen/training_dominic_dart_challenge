@@ -23,7 +23,10 @@ class RichText3 extends StatelessWidget {
             TextSpan(text: ' Three Four ', style: TextStyle(fontSize: 20)),
             TextSpan(
                 text: 'Five',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w800)),
+                style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.red)),
           ]),
       textAlign: TextAlign.center,
       selectionColor: const Color(0xFF737373),
