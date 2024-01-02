@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:gallery_app/src/features/home/model/view_item_model.dart';
+import 'package:gallery_app/src/network/model/view_item/view_item_model.dart';
 
 class HomeState extends Equatable {
   final List<ViewItemModel> lists;

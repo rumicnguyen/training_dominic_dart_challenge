@@ -4,7 +4,7 @@ import 'package:gallery_app/src/features/button/view/button_view.dart';
 import 'package:gallery_app/src/features/button_app_bar/view/button_app_bar_view.dart';
 import 'package:gallery_app/src/features/card/view/card_view.dart';
 import 'package:gallery_app/src/features/cupertino/view/cupertino_view.dart';
-import 'package:gallery_app/src/features/home/home_view.dart';
+import 'package:gallery_app/src/features/home/view/home_view.dart';
 import 'package:gallery_app/src/features/list_title/view/list_title_view.dart';
 import 'package:gallery_app/src/features/row_column/view/row_column_view.dart';
 import 'package:gallery_app/src/features/stack_align/view/stack_align_view.dart';

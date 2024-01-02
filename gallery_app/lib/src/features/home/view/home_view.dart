@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_app/src/features/home/model/view_item_model.dart';
+import 'package:gallery_app/src/network/data/view_item.dart';
 import 'package:gallery_app/src/features/home/widget/view_item.dart';
 
 class HomeView extends StatelessWidget {
