@@ -11,7 +11,7 @@ enum AppRouteName{
   textField(path: '/text-field'),
   rowColumn(path: '/row-column'),
   wrapChip(path: 'wrap-chip'),
-  stackAlign(path: 'srack-align');
+  stackAlign(path: 'stack-align');
 
   final String path;
 
