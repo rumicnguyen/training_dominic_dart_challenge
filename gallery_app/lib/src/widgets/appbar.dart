@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_app/src/theme/colors.dart';
 
-AppBar appBar({String title = ''}) => AppBar(
+class XAppBar extends StatelessWidget {
+  const XAppBar({super.key, required this.title});
+
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
       title: Text(title),
-      backgroundColor: AppColors.sky_500,
+      backgroundColor: const Color(0xFF2196F3),
       titleTextStyle: const TextStyle(
-          color: AppColors.slate_50, fontSize: 20, fontWeight: FontWeight.bold),
+          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
       iconTheme: const IconThemeData(
-        color: AppColors.slate_50,
+        color: Colors.white,
       ),
     );
+  }
+}

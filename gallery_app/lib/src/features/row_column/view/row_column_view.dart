@@ -1,28 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_app/src/features/row_column/logic/row_column_bloc.dart';
-import 'package:gallery_app/src/features/row_column/view/screen.dart';
-import 'package:gallery_app/src/features/row_column/view/footer.dart';
+import 'package:gallery_app/src/features/row_column/widget/container.dart';
+import 'package:gallery_app/src/features/row_column/widget/footer.dart';
 import 'package:gallery_app/src/theme/colors.dart';
-import 'package:gallery_app/src/widgets/appbar.dart';
 
 class RowColumnView extends StatelessWidget {
   const RowColumnView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<RowColumnBloc>(
-      create: (_) => RowColumnBloc(),
-      child: Scaffold(
-        appBar: appBar(
-          title: 'Row & Column',
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Row & Column'),
+        backgroundColor: AppColors.blue_700,
+        titleTextStyle: const TextStyle(
+            color: AppColors.slate_50,
+            fontSize: 20,
+            fontWeight: FontWeight.bold),
+        iconTheme: const IconThemeData(
+          color: AppColors.slate_50,
         ),
-        body: Container(
-          color: AppColors.gray_200,
-          child: const Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Screen(), Footer()],
-          ),
+      ),
+      body: Container(
+        color: AppColors.gray_200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              color: AppColors.yellow_300,
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  XContainer(
+                    fontSize: 35,
+                    colors: AppColors.slate_900,
+                    size: 50,
+                    textColor: AppColors.yellow_300,
+                  ),
+                  XContainer(
+                    fontSize: 50,
+                    colors: AppColors.slate_900,
+                    size: 75,
+                    textColor: AppColors.yellow_300,
+                  ),
+                  XContainer(
+                    fontSize: 35,
+                    colors: AppColors.slate_900,
+                    size: 50,
+                    textColor: AppColors.yellow_300,
+                  ),
+                ],
+              ),
+            ),
+            const Footer()
+          ],
         ),
       ),
     );

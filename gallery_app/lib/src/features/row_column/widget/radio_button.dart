@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gallery_app/src/features/row_column/logic/row_column_bloc.dart';
-import 'package:gallery_app/src/features/row_column/logic/row_column_state.dart';
-import 'package:gallery_app/src/network/data/row_column_enum.dart';
+
+enum RowColumn { row, column }
 
 class XRadioButton extends StatefulWidget {
   const XRadioButton({super.key});
@@ -12,40 +10,40 @@ class XRadioButton extends StatefulWidget {
 }
 
 class _XRadioButtonState extends State<XRadioButton> {
+  RowColumn? _row = RowColumn.row;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RowColumnBloc, RowColumnState>(
-      buildWhen: (previous, current) => previous.isRow != current.isRow,
-      builder: (context, state) => Row(
-        children: [
-          Expanded(
-            child: ListTile(
-              title: const Text('Row'),
-              leading: Radio<RowColumnEnum>(
-                value: RowColumnEnum.row,
-                groupValue:
-                    state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
-                onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsRow();
-                },
-              ),
+    return Row(
+      children: [
+        Expanded(
+          child: ListTile(
+            title: const Text('Row'),
+            leading: Radio<RowColumn>(
+              value: RowColumn.row,
+              groupValue: _row,
+              onChanged: (RowColumn? value) {
+                setState(() {
+                  _row = value;
+                });
+              },
             ),
           ),
-          Expanded(
-            child: ListTile(
-              title: const Text('Column'),
-              leading: Radio<RowColumnEnum>(
-                value: RowColumnEnum.column,
-                groupValue:
-                    state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
-                onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsColumn();
-                },
-              ),
+        ),
+        Expanded(
+          child: ListTile(
+            title: const Text('Column'),
+            leading: Radio<RowColumn>(
+              value: RowColumn.column,
+              groupValue: _row,
+              onChanged: (RowColumn? value) {
+                setState(() {
+                  _row = value;
+                });
+              },
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
