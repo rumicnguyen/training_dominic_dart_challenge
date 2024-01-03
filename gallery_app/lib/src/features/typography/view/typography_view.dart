@@ -16,7 +16,7 @@ class TypographyView extends StatelessWidget {
         titleTextStyle: const TextStyle(
             color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         iconTheme: const IconThemeData(
-          color: Colors.white, // Màu sắc của dấu trả về
+          color: Colors.white,
         ),
       ),
       body: const Center(
