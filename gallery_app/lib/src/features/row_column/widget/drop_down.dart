@@ -1,52 +1,49 @@
 import 'package:flutter/material.dart';
-
-enum ItemLabel {
-  max('max', 'max'),
-  min('min', 'min');
-
-  const ItemLabel(this.label, this.item);
-  final String label;
-  final String item;
-}
+import 'package:gallery_app/src/theme/colors.dart';
 
 class XDropDown extends StatefulWidget {
-  const XDropDown({super.key});
+  const XDropDown({super.key, required this.list, required this.label});
 
+  final List<String> list;
+  final String label;
   @override
   State<XDropDown> createState() => _XDropDownState();
 }
 
 class _XDropDownState extends State<XDropDown> {
-  final TextEditingController itemController = TextEditingController();
-  ItemLabel? selectedItem;
+  TextStyle customStyle() => const TextStyle(
+      fontSize: 20, color: AppColors.slate_900, fontWeight: FontWeight.w400);
+
   @override
   Widget build(BuildContext context) {
+    String dropdownValue = widget.list.first;
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('mainAxisSize'),
-        DropdownMenu<ItemLabel>(
-          initialSelection: ItemLabel.max,
-          controller: itemController,
-          enableFilter: true,
-          requestFocusOnTap: true,
-          inputDecorationTheme: const InputDecorationTheme(
-            contentPadding: EdgeInsets.symmetric(vertical: 5.0),
+        Text(widget.label, style: customStyle()),
+        DropdownButton<String>(
+          style: customStyle(),
+          icon: const Icon(Icons.expand_more),
+          value: dropdownValue,
+          underline: Container(
+            height: 1,
+            color: AppColors.gray_400,
           ),
-          onSelected: (ItemLabel? item) {
+          items: widget.list.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          onChanged: (String? value) {
             setState(() {
-              selectedItem = item;
+              if (value != null) {
+                dropdownValue = value;
+              } else {
+                dropdownValue = widget.list.first;
+              }
             });
           },
-          dropdownMenuEntries:
-              ItemLabel.values.map<DropdownMenuEntry<ItemLabel>>(
-            (ItemLabel item) {
-              return DropdownMenuEntry<ItemLabel>(
-                  value: item,
-                  label: item.label,
-                  enabled: item.label != selectedItem?.label);
-            },
-          ).toList(),
         ),
       ],
     );
