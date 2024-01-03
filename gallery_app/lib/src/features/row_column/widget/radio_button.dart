@@ -27,7 +27,7 @@ class _XRadioButtonState extends State<XRadioButton> {
                 groupValue:
                     state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
                 onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsRow();
+                  context.read<RowColumnBloc>().setIsColumn(false);
                 },
               ),
             ),
@@ -40,7 +40,7 @@ class _XRadioButtonState extends State<XRadioButton> {
                 groupValue:
                     state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
                 onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsColumn();
+                  context.read<RowColumnBloc>().setIsColumn(true);
                 },
               ),
             ),

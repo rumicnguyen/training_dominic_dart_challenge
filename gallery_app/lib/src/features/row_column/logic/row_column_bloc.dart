@@ -1,29 +1,28 @@
-import 'package:flutter/material.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/src/features/row_column/logic/row_column_state.dart';
 
 class RowColumnBloc extends Cubit<RowColumnState> {
   RowColumnBloc() : super(RowColumnState.ds());
 
-  void setIsColumn() => emit(state.copyWith(isRow: false));
+  void setIsColumn(bool isColumn) => emit(state.copyWith(isRow: !isColumn));
 
-  void setIsRow() => emit(state.copyWith(isRow: true));
-
-  void setMainAxisSize(MainAxisSize mainAxisSize) =>
-      emit(state.copyWith(mainAxisSize: mainAxisSize));
-
-  void setMainAxisAlignment(MainAxisAlignment mainAxisAlignment) =>
-      emit(state.copyWith(mainAxisAlignment: mainAxisAlignment));
-
-  void setCrossAxisAlignment(CrossAxisAlignment crossAxisAlignment) =>
-      emit(state.copyWith(crossAxisAlignment: crossAxisAlignment));
-
-  void setVerticalDirection(VerticalDirection verticalDirection) =>
-      emit(state.copyWith(verticalDirection: verticalDirection));
-
-  void setTextDirection(TextDirection textDirection) =>
-      emit(state.copyWith(textDirection: textDirection));
-
-  void setTextBaseline(TextBaseline textBaseline) =>
-      emit(state.copyWith(textBaseline: textBaseline));
+  void setProp({
+    MainAxisSize? mainAxisSize,
+    MainAxisAlignment? mainAxisAlignment,
+    CrossAxisAlignment? crossAxisAlignment,
+    VerticalDirection? verticalDirection,
+    TextDirection? textDirection,
+    TextBaseline? textBaseline,
+  }) {
+    emit(state.copyWith(
+      mainAxisSize: mainAxisSize ?? state.mainAxisSize,
+      mainAxisAlignment: mainAxisAlignment ?? state.mainAxisAlignment,
+      crossAxisAlignment: crossAxisAlignment ?? state.crossAxisAlignment,
+      verticalDirection: verticalDirection ?? state.verticalDirection,
+      textDirection: textDirection ?? state.textDirection,
+      textBaseline: textBaseline ?? state.textBaseline,
+    ));
+  }
 }

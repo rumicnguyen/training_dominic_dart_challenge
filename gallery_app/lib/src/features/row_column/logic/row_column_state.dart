@@ -11,14 +11,13 @@ class RowColumnState extends Equatable {
   final TextBaseline textBaseline;
 
   bool isChanged(RowColumnState state) {
-    if (isRow != state.isRow) return true;
-    if (mainAxisSize != state.mainAxisSize) return true;
-    if (mainAxisAlignment != state.mainAxisAlignment) return true;
-    if (crossAxisAlignment != state.crossAxisAlignment) return true;
-    if (verticalDirection != state.verticalDirection) return true;
-    if (textDirection != state.textDirection) return true;
-    if (textBaseline != state.textBaseline) return true;
-    return false;
+    return (isRow != state.isRow) ||
+        (mainAxisSize != state.mainAxisSize) ||
+        (mainAxisAlignment != state.mainAxisAlignment) ||
+        (crossAxisAlignment != state.crossAxisAlignment) ||
+        (verticalDirection != state.verticalDirection) ||
+        (textDirection != state.textDirection) ||
+        (textBaseline != state.textBaseline);
   }
 
   const RowColumnState({
