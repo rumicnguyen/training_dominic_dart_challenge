@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app/src/theme/colors.dart';
 
 class RichText3 extends StatelessWidget {
   const RichText3({super.key});
@@ -9,7 +10,7 @@ class RichText3 extends StatelessWidget {
       text: const TextSpan(
           text: 'One ',
           style: TextStyle(
-              color: Colors.black,
+              color: AppColors.slate_900,
               fontSize: 20,
               fontWeight: FontWeight.w600,
               height: 1.5),
@@ -26,10 +27,10 @@ class RichText3 extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w800,
-                    color: Colors.red)),
+                    color: AppColors.red_500)),
           ]),
       textAlign: TextAlign.center,
-      selectionColor: const Color(0xFF737373),
+      selectionColor: AppColors.gray_500,
     );
   }
 }

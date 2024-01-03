@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:gallery_app/src/theme/colors.dart';
 
 class RichText4 extends StatelessWidget {
   const RichText4({super.key});
@@ -15,10 +16,10 @@ class RichText4 extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 75,
                 width: 40,
-                color: const Color(0xFFF8BBD0),
+                color: AppColors.red_300,
                 child: const Text('G',
                     style: TextStyle(
-                        color: Color(0xFF2196F3),
+                        color: AppColors.blue_500,
                         fontSize: 50,
                         fontWeight: FontWeight.w400)),
               ),
@@ -27,11 +28,11 @@ class RichText4 extends StatelessWidget {
             WidgetSpan(
               child: Container(
                 height: 85,
-                color: const Color(0xFFFCE4EC),
+                color: AppColors.red_200,
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                 child: const Text('o',
                     style: TextStyle(
-                        color: Color(0xFFF44336),
+                        color: AppColors.red_500,
                         fontSize: 50,
                         fontWeight: FontWeight.w800)),
               ),
@@ -40,11 +41,11 @@ class RichText4 extends StatelessWidget {
             WidgetSpan(
               child: Container(
                 height: 85,
-                color: const Color(0xFFF48FB1),
+                color: AppColors.red_400,
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                 child: const Text('o',
                     style: TextStyle(
-                        color: Color(0xFFFFC107),
+                        color: AppColors.amber_400,
                         fontSize: 50,
                         fontWeight: FontWeight.w800)),
               ),
@@ -53,10 +54,10 @@ class RichText4 extends StatelessWidget {
             WidgetSpan(
               child: Container(
                 height: 75,
-                color: const Color(0xFFF8BBD0),
+                color: AppColors.red_300,
                 child: const Text('g',
                     style: TextStyle(
-                        color: Color(0xFF2196F3),
+                        color: AppColors.blue_500,
                         fontSize: 50,
                         fontWeight: FontWeight.w400)),
               ),
@@ -65,11 +66,11 @@ class RichText4 extends StatelessWidget {
             WidgetSpan(
               child: Container(
                 height: 85,
-                color: const Color(0xFFFCE4EC),
+                color: AppColors.red_200,
                 padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                 child: const Text('l',
                     style: TextStyle(
-                        color: Color(0xFF4CAF50),
+                        color: AppColors.lime_600,
                         fontSize: 50,
                         fontWeight: FontWeight.w800)),
               ),
@@ -78,10 +79,10 @@ class RichText4 extends StatelessWidget {
             WidgetSpan(
               child: Container(
                 height: 75,
-                color: const Color(0xFFF8BBD0),
+                color: AppColors.red_300,
                 child: const Text('e',
                     style: TextStyle(
-                        color: Color(0xFFF44235),
+                        color: AppColors.red_500,
                         fontSize: 50,
                         fontWeight: FontWeight.w600)),
               ),

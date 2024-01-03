@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/network/data/view_item.dart';
 import 'package:gallery_app/src/features/home/widget/view_item.dart';
+import 'package:gallery_app/src/theme/colors.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -13,12 +14,12 @@ class HomeView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('My widget'),
-            Icon(size: 30,color: Colors.white, Icons.account_circle_rounded)
+            Icon(size: 30,color: AppColors.slate_50, Icons.account_circle_rounded)
           ],
         ),
-        backgroundColor: Colors.cyan,
+        backgroundColor: AppColors.sky_400,
         titleTextStyle: const TextStyle(
-            color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+            color: AppColors.slate_50, fontSize: 20, fontWeight: FontWeight.bold),
       ),
       body: ListView(
         children: [
