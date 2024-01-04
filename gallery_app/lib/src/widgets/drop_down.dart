@@ -10,7 +10,7 @@ class XDropDown<T> extends StatelessWidget {
       required this.onChange,
       required this.value,
       required this.getTitle,
-      this.isExpand = true});
+      this.isExpand = false});
 
   final String label;
   final List<T> data;
