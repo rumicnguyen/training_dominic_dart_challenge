@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
+import 'package:gallery_app/src/widgets/title.dart';
 
 class XDropDown<T> extends StatelessWidget {
   const XDropDown(
@@ -25,7 +26,7 @@ class XDropDown<T> extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(label, style: _customStyle()),
+        XTitle(title: label),
         _buildWithNonLabel(),
       ],
     );
@@ -56,7 +57,4 @@ class XDropDown<T> extends StatelessWidget {
       },
     );
   }
-
-  TextStyle _customStyle() => const TextStyle(
-      fontSize: 20, color: AppColors.slate_900, fontWeight: FontWeight.w400);
 }

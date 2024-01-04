@@ -8,6 +8,7 @@ import 'package:gallery_app/src/features/home/view/home_view.dart';
 import 'package:gallery_app/src/features/list_title/view/list_title_view.dart';
 import 'package:gallery_app/src/features/row_column/view/row_column_view.dart';
 import 'package:gallery_app/src/features/stack_align/view/stack_align_view.dart';
+import 'package:gallery_app/src/features/text_field/view/text_field_view.dart';
 import 'package:gallery_app/src/features/typography/view/typography_view.dart';
 import 'package:gallery_app/src/features/wrap_chip/view/wrap_chip_view.dart';
 import 'package:gallery_app/src/router/route_name.dart';
@@ -60,7 +61,7 @@ class AppRouter {
               GoRoute(
                   path: AppRouteName.textField.subPath,
                   name: AppRouteName.textField.subPath,
-                  builder: (_, __) => const CupertinoView()),
+                  builder: (_, __) => const TextFieldView()),
               GoRoute(
                   path: AppRouteName.rowColumn.subPath,
                   name: AppRouteName.rowColumn.subPath,
