@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_app/src/features/wrap_chip/widget/title.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 
 class XSwitch extends StatelessWidget {
@@ -18,17 +19,21 @@ class XSwitch extends StatelessWidget {
   }
 
   Widget _buildWithLabel() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(label, style: _customStyle()),
-        _buildWithNonLabel(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          XTitle(title: label),
+          _buildWithNonLabel(),
+        ],
+      ),
     );
   }
 
   Widget _buildWithNonLabel() {
     return Switch(
+      inactiveTrackColor: AppColors.slate_50,
       value: value,
       activeColor: AppColors.blue_400,
       onChanged: (bool value) {
@@ -36,7 +41,4 @@ class XSwitch extends StatelessWidget {
       },
     );
   }
-
-  TextStyle _customStyle() => const TextStyle(
-      fontSize: 20, color: AppColors.slate_900, fontWeight: FontWeight.w400);
 }

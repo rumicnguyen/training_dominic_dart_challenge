@@ -10,35 +10,39 @@ class ChipChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const XTitle(title: 'Chip Chip'),
-      Wrap(
-        spacing: 8.0,
-        runSpacing: 4.0,
-        children: <Widget>[
-          _buildChip('chip'),
-          _buildChip('ActionChip'),
-          _buildChip('RawChip'),
-        ],
-      ),
-    ]);
+    return BlocBuilder<WrapChipBloc, WrapChipState>(
+        buildWhen: (previous, current) => previous.isChanged(current),
+        builder: (context, state) {
+          return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const XTitle(title: 'Chip Chip'),
+                Wrap(
+                  spacing: state.isSpacing ? 10.0 : 0,
+                  runSpacing: state.isRunSpacing ? 10.0 : 0,
+                  children: <Widget>[
+                    _buildChip('chip'),
+                    _buildChip('ActionChip'),
+                    _buildChip('RawChip'),
+                  ],
+                ),
+              ]);
+        });
   }
 
   Widget _buildChip(String title) {
     return BlocBuilder<WrapChipBloc, WrapChipState>(
-        buildWhen: (previous, current) =>
-            previous.isElevation != current.isElevation,
+        buildWhen: (previous, current) => previous.isChanged(current),
         builder: (context, state) {
           return Chip(
-            elevation: state.isElevation ? 10 : 0,
             
-            deleteIcon: const Icon(Icons.delete),
+            elevation: state.isElevation ? 10 : 0,
+            avatar: state.isAvatar ? const Icon(Icons.abc) : null,
             labelStyle: const TextStyle(
                 color: AppColors.slate_950,
                 fontSize: 20,
                 fontWeight: FontWeight.w400),
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(30.0))),
+            shape: state.outlinedBorder,
             side: BorderSide.none,
             padding: const EdgeInsets.all(5.0),
             backgroundColor: AppColors.gray_300,

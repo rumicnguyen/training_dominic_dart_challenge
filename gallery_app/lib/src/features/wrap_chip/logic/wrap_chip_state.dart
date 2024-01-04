@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 
 class WrapChipState extends Equatable {
   final bool isElevation;
@@ -6,7 +7,7 @@ class WrapChipState extends Equatable {
   final bool isDeleteIcon;
   final bool isSpacing;
   final bool isRunSpacing;
-  final String string;
+  final OutlinedBorder outlinedBorder;
 
   const WrapChipState({
     required this.isElevation,
@@ -14,10 +15,26 @@ class WrapChipState extends Equatable {
     required this.isDeleteIcon,
     required this.isSpacing,
     required this.isRunSpacing,
-    required this.string,
+    required this.outlinedBorder,
   });
 
-  factory WrapChipState.ds()=> const WrapChipState(isElevation: false, isAvatar: false, isDeleteIcon: false, isSpacing: false, isRunSpacing: false, string: 'string');
+  factory WrapChipState.ds() => const WrapChipState(
+      isElevation: false,
+      isAvatar: false,
+      isDeleteIcon: false,
+      isSpacing: false,
+      isRunSpacing: false,
+      outlinedBorder: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(30.0))));
+
+  bool isChanged(WrapChipState wrapChipState) {
+    return (wrapChipState.isElevation != isElevation) ||
+        (wrapChipState.isAvatar != isAvatar) ||
+        (wrapChipState.isDeleteIcon != isDeleteIcon) ||
+        (wrapChipState.isSpacing != isSpacing) ||
+        (wrapChipState.isRunSpacing != isRunSpacing) ||
+        (wrapChipState.outlinedBorder != outlinedBorder);
+  }
 
   WrapChipState copyWith({
     bool? isElevation,
@@ -25,7 +42,7 @@ class WrapChipState extends Equatable {
     bool? isDeleteIcon,
     bool? isSpacing,
     bool? isRunSpacing,
-    String? string,
+    OutlinedBorder? outlinedBorder,
   }) {
     return WrapChipState(
       isElevation: isElevation ?? this.isElevation,
@@ -33,7 +50,7 @@ class WrapChipState extends Equatable {
       isDeleteIcon: isDeleteIcon ?? this.isDeleteIcon,
       isSpacing: isSpacing ?? this.isSpacing,
       isRunSpacing: isRunSpacing ?? this.isRunSpacing,
-      string: string ?? this.string,
+      outlinedBorder: outlinedBorder ?? this.outlinedBorder,
     );
   }
 
@@ -45,7 +62,7 @@ class WrapChipState extends Equatable {
       isDeleteIcon,
       isSpacing,
       isRunSpacing,
-      string,
+      outlinedBorder,
     ];
   }
 }
