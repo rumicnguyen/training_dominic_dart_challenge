@@ -16,37 +16,39 @@ class _XRadioButtonState extends State<XRadioButton> {
   Widget build(BuildContext context) {
     return BlocBuilder<RowColumnBloc, RowColumnState>(
       buildWhen: (previous, current) => previous.isRow != current.isRow,
-      builder: (context, state) => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: ListTile(
-              title: const Text('Row'),
-              leading: Radio<RowColumnEnum>(
-                value: RowColumnEnum.row,
-                groupValue:
-                    state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
-                onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsColumn(false);
-                },
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: ListTile(
+                title: const Text('Row'),
+                leading: Radio<RowColumnEnum>(
+                  value: RowColumnEnum.row,
+                  groupValue:
+                      state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
+                  onChanged: (RowColumnEnum? value) {
+                    context.read<RowColumnBloc>().setIsColumn(false);
+                  },
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: ListTile(
-              title: const Text('Column'),
-              leading: Radio<RowColumnEnum>(
-                value: RowColumnEnum.column,
-                groupValue:
-                    state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
-                onChanged: (RowColumnEnum? value) {
-                  context.read<RowColumnBloc>().setIsColumn(true);
-                },
+            Expanded(
+              child: ListTile(
+                title: const Text('Column'),
+                leading: Radio<RowColumnEnum>(
+                  value: RowColumnEnum.column,
+                  groupValue:
+                      state.isRow ? RowColumnEnum.row : RowColumnEnum.column,
+                  onChanged: (RowColumnEnum? value) {
+                    context.read<RowColumnBloc>().setIsColumn(true);
+                  },
+                ),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        );
+      },
     );
   }
 }

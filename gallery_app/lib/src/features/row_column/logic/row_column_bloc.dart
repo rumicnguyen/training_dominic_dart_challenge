@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gallery_app/src/features/row_column/logic/row_column_state.dart';
@@ -6,7 +5,9 @@ import 'package:gallery_app/src/features/row_column/logic/row_column_state.dart'
 class RowColumnBloc extends Cubit<RowColumnState> {
   RowColumnBloc() : super(RowColumnState.ds());
 
-  void setIsColumn(bool isColumn) => emit(state.copyWith(isRow: !isColumn));
+  void setIsColumn(bool isColumn) {
+    emit(state.copyWith(isRow: !isColumn));
+  }
 
   void setProp({
     MainAxisSize? mainAxisSize,
