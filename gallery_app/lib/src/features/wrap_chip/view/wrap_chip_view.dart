@@ -15,7 +15,7 @@ class WrapChipView extends StatelessWidget {
       child: const Scaffold(
         appBar: XAppBar(title: 'Wrap & Chip'),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [WrapChipScreen(), WrapChipControl()]),
       ),
     );

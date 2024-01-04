@@ -35,7 +35,6 @@ class ChipChip extends StatelessWidget {
         buildWhen: (previous, current) => previous.isChanged(current),
         builder: (context, state) {
           return Chip(
-            
             elevation: state.isElevation ? 10 : 0,
             avatar: state.isAvatar ? const Icon(Icons.abc) : null,
             labelStyle: const TextStyle(

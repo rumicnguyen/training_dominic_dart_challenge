@@ -33,7 +33,6 @@ class XSwitch extends StatelessWidget {
 
   Widget _buildWithNonLabel() {
     return Switch(
-      
       inactiveTrackColor: AppColors.slate_50,
       value: value,
       activeColor: AppColors.blue_400,

@@ -44,7 +44,6 @@ class _XInputChipState extends State<XInputChip> {
               ),
               const SizedBox(height: 10.0),
               Wrap(
-                
                 spacing: state.isSpacing ? 10.0 : 0,
                 runSpacing: state.isRunSpacing ? 10.0 : 0,
                 children: List<Widget>.generate(
@@ -67,9 +66,8 @@ class _XInputChipState extends State<XInputChip> {
                                     : AppColors.slate_900,
                                 fontSize: 20,
                                 fontWeight: FontWeight.w400),
-                                shape: state.outlinedBorder,
+                            shape: state.outlinedBorder,
                             side: BorderSide.none,
-                            
                             padding: const EdgeInsets.all(5.0),
                             backgroundColor: AppColors.gray_300,
                             label: Text(list.elementAt(index)),
