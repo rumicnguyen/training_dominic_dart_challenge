@@ -10,7 +10,7 @@ class StackAlignScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<StackAlignBloc, StackAlignState>(
-        buildWhen: (previous, current) => previous != current,
+        buildWhen: (previous, current) => previous.isChanged(current),
         builder: (context, state) {
           return SizedBox(
             width: 400,
