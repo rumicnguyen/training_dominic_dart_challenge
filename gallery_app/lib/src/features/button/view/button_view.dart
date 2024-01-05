@@ -35,8 +35,8 @@ class ButtonView extends StatelessWidget {
                 onPressed: null,
               ),
             ),
-            buildElevatedButton(title: 'Elevated Button'),
-            buildElevatedButtonIcon(title: 'Elevated Button Icon'),
+            _buildElevatedButton(title: 'Elevated Button'),
+            _buildElevatedButtonIcon(title: 'Elevated Button Icon'),
             _buildTextButton(),
             _buildTextButtonIcon(),
             _buildOutlinedButton(),
@@ -89,7 +89,7 @@ class ButtonView extends StatelessWidget {
     );
   }
 
-  Widget buildElevatedButton({required String title}) {
+  Widget _buildElevatedButton({required String title}) {
     return SizedBox(
       width: 400,
       child: ElevatedButton(
@@ -109,7 +109,7 @@ class ButtonView extends StatelessWidget {
     );
   }
 
-  Widget buildElevatedButtonIcon({required String title}) {
+  Widget _buildElevatedButtonIcon({required String title}) {
     return SizedBox(
       width: 400,
       child: ElevatedButton.icon(
