@@ -24,4 +24,5 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/card_bg.jpg
+    - assets/images/app_bar.jpg
   uses-material-design: true
