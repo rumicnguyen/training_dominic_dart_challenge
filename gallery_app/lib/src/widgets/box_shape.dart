@@ -19,7 +19,6 @@ class _XBoxShapeState extends State<XBoxShape> {
         height: 100,
         decoration: const BoxDecoration(
           color: AppColors.slate_50,
-          // border: Border.all(color: AppColors.gray_400, width: 1)
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
