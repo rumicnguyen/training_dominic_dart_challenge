@@ -17,9 +17,10 @@ class _XBoxShapeState extends State<XBoxShape> {
       child: Container(
         width: 400,
         height: 100,
-        decoration: BoxDecoration(
-            color: AppColors.slate_50,
-            border: Border.all(color: AppColors.gray_400, width: 1)),
+        decoration: const BoxDecoration(
+          color: AppColors.slate_50,
+          // border: Border.all(color: AppColors.gray_400, width: 1)
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,18 +43,8 @@ class _XBoxShapeState extends State<XBoxShape> {
                 )),
               ),
             ),
-            Column(
-              children: List.generate(
-                  100 ~/ 10,
-                  (index) => Expanded(
-                        child: Container(
-                          color: index % 2 == 0
-                              ? AppColors.transparent
-                              : AppColors.gray_400,
-                          height: 2,
-                          width: 1,
-                        ),
-                      )),
+            CustomPaint(
+              painter: DashedLinePainter(),
             ),
             Flexible(
               flex: 3,
@@ -118,7 +109,7 @@ class TicketClipper extends CustomClipper<Path> {
     var path = Path();
     double sideRadius = size.height / 8;
     double radius = size.height * 3 / 16;
-    double mid = size.width * 0.27;
+    double mid = size.width * 0.285;
     double borderRadius = size.height / 10;
 
     path.moveTo(borderRadius, 0);
@@ -154,4 +145,26 @@ class TicketClipper extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class DashedLinePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..strokeWidth = 2
+      ..color = AppColors.gray_400;
+    var max = 80;
+    var dashWidth = 5;
+    var dashSpace = 5;
+    double startY = -40;
+    while (max >= 0) {
+      canvas.drawLine(Offset(0, startY), Offset(0, startY + dashWidth), paint);
+      final space = (dashSpace + dashWidth);
+      startY += space;
+      max -= space;
+    }
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
