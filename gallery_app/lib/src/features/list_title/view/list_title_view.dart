@@ -11,37 +11,6 @@ class ListTitleView extends StatefulWidget {
 }
 
 class _ListTitleViewState extends State<ListTitleView> {
-  ScrollController? _scrollController;
-
-  bool lastStatus = true;
-  double height = 200;
-
-  void _scrollListener() {
-    if (_isShrink != lastStatus) {
-      setState(() {
-        lastStatus = _isShrink;
-      });
-    }
-  }
-
-  bool get _isShrink {
-    return _scrollController != null &&
-        _scrollController!.hasClients &&
-        _scrollController!.offset > (height - kToolbarHeight);
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _scrollController = ScrollController()..addListener(_scrollListener);
-  }
-
-  @override
-  void dispose() {
-    _scrollController?.removeListener(_scrollListener);
-    _scrollController?.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
