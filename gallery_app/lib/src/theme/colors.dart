@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // custom
-
+  static const transparent = Colors.transparent;
   // slate
   static const slate_50 = Color(0xfff8fafc);
   static const slate_100 = Color(0xfff1f5f9);
