@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:gallery_app/src/features/cupertino/widget/title.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 import 'package:gallery_app/src/widgets/section.dart';
 
@@ -22,13 +22,7 @@ class _XSliderState extends State<XSlider> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Slider',
-              style: TextStyle(
-                  color: AppColors.slate_900,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500),
-            ),
+            const MyTitle(title: 'Slider'),
             _buildSlider1(),
             _buildSlider2(),
           ],

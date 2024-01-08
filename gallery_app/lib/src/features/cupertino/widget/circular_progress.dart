@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:gallery_app/src/features/cupertino/widget/title.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 import 'package:gallery_app/src/widgets/section.dart';
 
@@ -41,13 +41,7 @@ class _XCircularProgressState extends State<XCircularProgress>
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              'Indicator',
-              style: TextStyle(
-                  color: AppColors.slate_900,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500),
-            ),
+            MyTitle(title: 'Indicator'),
             Center(
               child: CupertinoActivityIndicator(
                   radius: 20.0, color: AppColors.blue_500),
