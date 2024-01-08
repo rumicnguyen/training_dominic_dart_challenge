@@ -40,6 +40,9 @@ class _CupertinoViewState extends State<CupertinoView> {
         tabBuilder: (context, i) {
           return CupertinoPageScaffold(
             child: CustomScrollView(
+              physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics(),
+              ),
               slivers: [
                 CupertinoSliverNavigationBar(
                   largeTitle: const Text('Widget'),
@@ -47,11 +50,15 @@ class _CupertinoViewState extends State<CupertinoView> {
                 ),
                 CupertinoSliverRefreshControl(
                   onRefresh: () async {
-                    await Future.delayed(const Duration(seconds: 3));
-                    items.clear();
-                    items.addAll(List.from(data));
+                    await Future.delayed(const Duration(seconds: 1));
 
-                    setState(() {});
+                    setState(() {
+                      items.clear();
+                    });
+                    await Future.delayed(const Duration(seconds: 1));
+                    setState(() {
+                      items.addAll(List.from(data));
+                    });
                   },
                 ),
                 SliverList(
