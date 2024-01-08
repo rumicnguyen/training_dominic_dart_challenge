@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 import 'package:gallery_app/src/widgets/section.dart';
@@ -37,32 +38,38 @@ class _XSliderState extends State<XSlider> {
   }
 
   Widget _buildSlider1() {
-    return Slider(
-      value: _currentSliderValue1,
-      activeColor: AppColors.blue_500,
-      max: 100,
-      divisions: 5,
-      label: _currentSliderValue1.round().toString(),
-      onChanged: (double value) {
-        setState(() {
-          _currentSliderValue1 = value;
-        });
-      },
+    return SizedBox(
+      width: double.infinity,
+      child: CupertinoSlider(
+        value: _currentSliderValue1,
+        divisions: 5,
+        max: 100,
+        activeColor: AppColors.blue_500,
+        thumbColor: AppColors.blue_500,
+        onChanged: (double value) {
+          setState(() {
+            _currentSliderValue1 = value;
+          });
+        },
+      ),
     );
   }
 
   Widget _buildSlider2() {
-    return Slider(
-      value: _currentSliderValue2,
-      activeColor: AppColors.blue_500,
-      max: 100,
-      divisions: 5,
-      label: _currentSliderValue2.round().toString(),
-      onChanged: (double value) {
-        setState(() {
-          _currentSliderValue2 = value;
-        });
-      },
+    return SizedBox(
+      width: double.infinity,
+      child: CupertinoSlider(
+        value: _currentSliderValue2,
+        divisions: 5,
+        max: 100,
+        activeColor: AppColors.blue_500,
+        thumbColor: AppColors.blue_500,
+        onChanged: (double value) {
+          setState(() {
+            _currentSliderValue2 = value;
+          });
+        },
+      ),
     );
   }
 }

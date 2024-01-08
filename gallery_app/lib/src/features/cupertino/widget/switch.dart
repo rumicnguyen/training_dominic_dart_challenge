@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 import 'package:gallery_app/src/widgets/section.dart';
@@ -32,21 +33,21 @@ class _MySwitchState extends State<MySwitch> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Switch(
+                  CupertinoSwitch(
                     value: value1,
                     activeColor: AppColors.blue_500,
-                    onChanged: (value) {
+                    onChanged: (bool? value) {
                       setState(() {
-                        value1 = value;
+                        value1 = value ?? false;
                       });
                     },
                   ),
-                  Switch(
+                  CupertinoSwitch(
                     value: value2,
                     activeColor: AppColors.blue_500,
-                    onChanged: (value) {
+                    onChanged: (bool? value) {
                       setState(() {
-                        value2 = value;
+                        value2 = value ?? false;
                       });
                     },
                   ),

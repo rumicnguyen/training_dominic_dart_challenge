@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
 import 'package:gallery_app/src/widgets/section.dart';
@@ -33,14 +34,14 @@ class _XCircularProgressState extends State<XCircularProgress>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       width: double.infinity,
       child: XSection(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               'Indicator',
               style: TextStyle(
                   color: AppColors.slate_900,
@@ -48,11 +49,8 @@ class _XCircularProgressState extends State<XCircularProgress>
                   fontWeight: FontWeight.w500),
             ),
             Center(
-              child: CircularProgressIndicator(
-                value: controller.value,
-                color: AppColors.blue_500,
-                semanticsLabel: 'Circular progress indicator',
-              ),
+              child: CupertinoActivityIndicator(
+                  radius: 20.0, color: AppColors.blue_500),
             ),
           ],
         ),
