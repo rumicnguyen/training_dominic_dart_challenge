@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
+import 'package:gallery_app/src/widgets/section.dart';
 
 class XCircularProgress extends StatefulWidget {
   const XCircularProgress({super.key});
@@ -34,8 +35,7 @@ class _XCircularProgressState extends State<XCircularProgress>
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: XSection(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,

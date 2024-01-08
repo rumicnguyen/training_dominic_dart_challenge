@@ -4,6 +4,7 @@ import 'package:gallery_app/src/features/cupertino/widget/circular_progress.dart
 import 'package:gallery_app/src/features/cupertino/widget/slider.dart';
 import 'package:gallery_app/src/features/cupertino/widget/switch.dart';
 import 'package:gallery_app/src/theme/colors.dart';
+import 'package:gallery_app/src/widgets/section.dart';
 
 class CupertinoView extends StatelessWidget {
   const CupertinoView({super.key});
@@ -68,8 +69,7 @@ class CupertinoView extends StatelessWidget {
   Widget _buildButton() {
     return const SizedBox(
       width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
+      child: XSection(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gallery_app/src/theme/colors.dart';
+import 'package:gallery_app/src/widgets/section.dart';
 
 class MySwitch extends StatefulWidget {
   const MySwitch({super.key});
@@ -15,8 +16,7 @@ class _MySwitchState extends State<MySwitch> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: XSection(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
