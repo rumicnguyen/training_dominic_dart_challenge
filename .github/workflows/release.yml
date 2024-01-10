@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -49,4 +49,4 @@ jobs:
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
       - name: Distribute app to Beta track 🚀
-        run: bundle exec fastlane beta
+        run: fastlane beta
