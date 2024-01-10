@@ -6,13 +6,13 @@ on:
       - "feature/depoy"
       - "dev"
     paths:
-      - "/.github/workflow/relase.yaml"
+      - "/.github/workflows/relase.yaml"
   pull_request:
     branches:
       - "feature/depoy"
       - "dev"
     paths:
-      - "/.github/workflow/relase.yaml"
+      - "/.github/workflows/relase.yaml"
 
 jobs:
   distribute:
