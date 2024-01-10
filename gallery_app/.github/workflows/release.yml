@@ -3,10 +3,12 @@ name: Deploy
 on:
   push:
     branches: ["dev", "feature/depoy"]
-    paths: [".github/workflows/release.yml"]
+    paths: 
+      - ".github/workflows/release.yml"
   pull_request:
     branches: ["dev", "feature/depoy"]
-    paths: [".github/workflows/release.yml"]
+    paths: 
+      - ".github/workflows/release.yml"
 
 jobs:
   distribute:
