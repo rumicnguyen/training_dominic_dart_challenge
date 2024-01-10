@@ -41,3 +41,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Key
+**/google-services.json
+**/fastlane_secret_key.json
+**/upload-keystore.jks
+
+#metadata fastlane
+**android/fastlane/metadata
+.metadata
