@@ -36,11 +36,6 @@ List<ViewItemModel> list = [
           'A single fixed-height row that typically contains some text as well as leading or trailing icon.',
       routeNamed: 'list-title'),
   ViewItemModel(
-      icon: Icons.tab_unselected,
-      title: 'Alert',
-      description: 'Alerts, SnackBar & Tooltip.',
-      routeNamed: 'alert'),
-  ViewItemModel(
       icon: Icons.menu,
       title: 'Text Field',
       description: 'Text Field, Text Field Form.',

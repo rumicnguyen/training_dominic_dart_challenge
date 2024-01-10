@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:gallery_app/src/features/alert/view/alert_view.dart';
 import 'package:gallery_app/src/features/button/view/button_view.dart';
 import 'package:gallery_app/src/features/button_app_bar/view/button_app_bar_view.dart';
 import 'package:gallery_app/src/features/card/view/card_view.dart';
@@ -48,10 +47,6 @@ class AppRouter {
                   path: AppRouteName.listTitle.subPath,
                   name: AppRouteName.listTitle.subPath,
                   builder: (_, __) => const ListTitleView()),
-              GoRoute(
-                  path: AppRouteName.alert.subPath,
-                  name: AppRouteName.alert.subPath,
-                  builder: (_, __) => const AlertView()),
               GoRoute(
                   path: AppRouteName.textField.subPath,
                   name: AppRouteName.textField.subPath,
