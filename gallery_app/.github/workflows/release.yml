@@ -3,16 +3,10 @@ name: Deploy
 on:
   push:
     branches:
-      - "feature/depoy"
-      - "dev"
-    paths:
-      - "/.github/workflows/relase.yaml"
+      ["dev", "feature/depoy"]
   pull_request:
     branches:
-      - "feature/depoy"
-      - "dev"
-    paths:
-      - "/.github/workflows/relase.yaml"
+      ["dev", "feature/depoy"]
 
 jobs:
   distribute:
