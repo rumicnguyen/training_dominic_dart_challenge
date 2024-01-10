@@ -25,11 +25,6 @@ List<ViewItemModel> list = [
           'RaisedButton, FlatButton, DropDownButton, FloatingActionButton, IconButton, InkWell, RawMaterialButton.',
       routeNamed: 'button'),
   ViewItemModel(
-      icon: Icons.list,
-      title: 'List',
-      description: 'Scrolling list layout.',
-      routeNamed: 'list'),
-  ViewItemModel(
       icon: Icons.book,
       title: 'Card',
       description: 'Card with rounded and decoration.',

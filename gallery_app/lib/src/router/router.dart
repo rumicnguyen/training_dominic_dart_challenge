@@ -14,8 +14,6 @@ import 'package:gallery_app/src/features/wrap_chip/view/wrap_chip_view.dart';
 import 'package:gallery_app/src/router/route_name.dart';
 import 'package:go_router/go_router.dart';
 
-import '../features/list/view/list_view.dart';
-
 class AppRouter {
   final router = GoRouter(
       initialLocation: AppRouteName.home.path,
@@ -42,10 +40,6 @@ class AppRouter {
                   path: AppRouteName.button.subPath,
                   name: AppRouteName.button.subPath,
                   builder: (_, __) => const ButtonView()),
-              GoRoute(
-                  path: AppRouteName.list.subPath,
-                  name: AppRouteName.list.subPath,
-                  builder: (_, __) => const XListView()),
               GoRoute(
                   path: AppRouteName.card.subPath,
                   name: AppRouteName.card.subPath,
