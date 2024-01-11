@@ -18,6 +18,7 @@ default_platform(:android)
 platform :android do
   desc "Runs all the tests"
   lane :distribute do
+      sh("flutter clean")
       sh("flutter build apk --release")
 
       release = firebase_app_distribution(
@@ -48,6 +49,7 @@ platform :android do
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
+    sh("flutter clean")
     sh("flutter build appbundle --build-name 1.0.2 --build-number 2 --release")
 
     upload_to_play_store(
