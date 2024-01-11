@@ -44,6 +44,11 @@ jobs:
           KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
           KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+      - name: Configure token
+        run: |
+          echo "firebaseCliToken=$FIREBASE_CLI_TOKEN" >> gallery_app/android/fastlane/.env
+        env:
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
 
       - name: Create Google Services file
         run : |
