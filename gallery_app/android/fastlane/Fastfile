@@ -18,13 +18,11 @@ default_platform(:android)
 platform :android do
   desc "Runs all the tests"
   lane :distribute do
-      build_android_app(
-          task: "assembg",
-          build_type: "Release"
-      )
+      sh("flutter build apk --release")
 
       release = firebase_app_distribution(
         app: "1:752009926548:android:c757cac8210f029623a181",
+        android_artifact_path: "../build/app/outputs/apk/release/app-release.apk",
         testers: "dominic.nguyen.gos@gmail.com",
         release_notes: "First deploy"
       )
@@ -50,7 +48,12 @@ platform :android do
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
+    sh("flutter build appbundle --build-name 1.0.2 --build-number 2 --release")
+
+    upload_to_play_store(
+      track: 'internal', 
+      release_status: 'draft',
+      aab: "../build/app/outputs/bundle/release/app-release.aab",
+    )
   end
 end

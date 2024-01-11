@@ -51,7 +51,11 @@ jobs:
           base64 -d -i fastlane_secret_key.json.json.b64 > fastlane_secret_key.json.json
         env:
           PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
-      - name: Distribute app to Beta track 🚀
+      - name: Distribute app to Firebase
         working-directory: ./gallery_app/android
         shell: pwsh
-        run: fastlane beta
+        run: fastlane distribute
+      - name: Deploy app to Google play
+        working-directory: ./gallery_app/android
+        shell: pwsh
+        run: fastlane deploy
