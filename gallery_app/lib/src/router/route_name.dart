@@ -4,7 +4,6 @@ enum AppRouteName{
   typography(path: '/typography'),
   buttonAppBar(path: '/button-app-bar'),
   button(path: '/button'),
-  list(path: '/list'),
   card(path: '/card'),
   listTitle(path: '/list-title'),
   alert(path: '/alert'),

@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:gallery_app/src/features/alert/view/alert_view.dart';
 import 'package:gallery_app/src/features/button/view/button_view.dart';
 import 'package:gallery_app/src/features/button_app_bar/view/button_app_bar_view.dart';
 import 'package:gallery_app/src/features/card/view/card_view.dart';
@@ -13,8 +12,6 @@ import 'package:gallery_app/src/features/typography/view/typography_view.dart';
 import 'package:gallery_app/src/features/wrap_chip/view/wrap_chip_view.dart';
 import 'package:gallery_app/src/router/route_name.dart';
 import 'package:go_router/go_router.dart';
-
-import '../features/list/view/list_view.dart';
 
 class AppRouter {
   final router = GoRouter(
@@ -43,10 +40,6 @@ class AppRouter {
                   name: AppRouteName.button.subPath,
                   builder: (_, __) => const ButtonView()),
               GoRoute(
-                  path: AppRouteName.list.subPath,
-                  name: AppRouteName.list.subPath,
-                  builder: (_, __) => const XListView()),
-              GoRoute(
                   path: AppRouteName.card.subPath,
                   name: AppRouteName.card.subPath,
                   builder: (_, __) => const CardView()),
@@ -54,10 +47,6 @@ class AppRouter {
                   path: AppRouteName.listTitle.subPath,
                   name: AppRouteName.listTitle.subPath,
                   builder: (_, __) => const ListTitleView()),
-              GoRoute(
-                  path: AppRouteName.alert.subPath,
-                  name: AppRouteName.alert.subPath,
-                  builder: (_, __) => const AlertView()),
               GoRoute(
                   path: AppRouteName.textField.subPath,
                   name: AppRouteName.textField.subPath,

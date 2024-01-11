@@ -1,0 +1,72 @@
+name: Deploy
+
+on:
+  push:
+    branches: ["dev", "feature/depoy"]
+    paths: 
+      - ".github/workflows/release.yml"
+  pull_request:
+    branches: ["dev", "feature/depoy"]
+    paths: 
+      - ".github/workflows/release.yml"
+
+jobs:
+  distribute:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: "17.0"
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+      - name: Install Fastlane
+        run: gem install fastlane
+      - name: Configure Keystore
+        run: |
+          echo "$ANDROID_KEYSTORE_FILE" > keystore.jks.b64
+          base64 -d -i keystore.jks.b64 > gallery_app/android/app/keystore.jks
+          echo "storeFile=./keystore.jks" >> gallery_app/android/key.properties
+          echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> gallery_app/android/key.properties
+          echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> gallery_app/android/key.properties
+          echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> gallery_app/android/key.properties
+        env:
+          ANDROID_KEYSTORE_FILE: ${{ secrets.ANDROID_KEYSTORE_FILE }}
+          KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+          KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+      - name: Configure token
+        run: |
+          echo "firebaseCliToken=$FIREBASE_CLI_TOKEN" >> gallery_app/android/fastlane/.env
+        env:
+          FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+
+      - name: Create Google Services file
+        run : |
+          echo "$GOOGLE_SERVICES_JSON" > google-services.json.b64
+          base64 -d -i google-services.json.b64 > gallery_app/android/app/google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+      - name: Create Google Play Config file
+        run : |
+          echo "$PLAY_CONFIG_JSON" > fastlane_secret_key.json.b64
+          base64 -d -i fastlane_secret_key.json.b64 > gallery_app/android/fastlane_secret_key.json
+        env:
+          PLAY_CONFIG_JSON: ${{ secrets.PLAY_CONFIG_JSON }}
+      - name: Distribute app to Firebase
+        working-directory: ./gallery_app/android
+        shell: pwsh
+        run: fastlane distribute
+      - name: Deploy app to Google play
+        working-directory: ./gallery_app/android
+        shell: pwsh
+        run: fastlane deploy

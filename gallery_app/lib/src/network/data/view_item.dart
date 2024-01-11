@@ -25,11 +25,6 @@ List<ViewItemModel> list = [
           'RaisedButton, FlatButton, DropDownButton, FloatingActionButton, IconButton, InkWell, RawMaterialButton.',
       routeNamed: 'button'),
   ViewItemModel(
-      icon: Icons.list,
-      title: 'List',
-      description: 'Scrolling list layout.',
-      routeNamed: 'list'),
-  ViewItemModel(
       icon: Icons.book,
       title: 'Card',
       description: 'Card with rounded and decoration.',
@@ -40,11 +35,6 @@ List<ViewItemModel> list = [
       description:
           'A single fixed-height row that typically contains some text as well as leading or trailing icon.',
       routeNamed: 'list-title'),
-  ViewItemModel(
-      icon: Icons.tab_unselected,
-      title: 'Alert',
-      description: 'Alerts, SnackBar & Tooltip.',
-      routeNamed: 'alert'),
   ViewItemModel(
       icon: Icons.menu,
       title: 'Text Field',
