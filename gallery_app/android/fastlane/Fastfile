@@ -51,7 +51,7 @@ platform :android do
   desc "Deploy a new version to the Google Play"
   lane :deploy do
     sh("flutter clean")
-    sh("flutter build appbundle --build-name 1.0.2 --build-number 2 --release")
+    sh("flutter build appbundle --build-name 1.0.3 --build-number 3 --release")
 
     upload_to_play_store(
       track: 'internal', 
