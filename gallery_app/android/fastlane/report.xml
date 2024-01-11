@@ -5,17 +5,7 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.0016111">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="1: flutter build appbundle --build-name 1.0.2 --build-number 2 --release" time="3.0939549">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="2: upload_to_play_store" time="35.7545889">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.0016902">
         
       </testcase>
     

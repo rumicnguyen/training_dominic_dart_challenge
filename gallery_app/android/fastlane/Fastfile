@@ -23,6 +23,7 @@ platform :android do
 
       release = firebase_app_distribution(
         app: "1:752009926548:android:c757cac8210f029623a181",
+        firebase_cli_token: ENV["firebaseCliToken"],
         android_artifact_path: "../build/app/outputs/apk/release/app-release.apk",
         testers: "dominic.nguyen.gos@gmail.com",
         release_notes: "First deploy"
