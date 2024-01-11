@@ -47,6 +47,9 @@ app.*.map.json
 **/fastlane_secret_key.json
 **/upload-keystore.jks
 
+# env
+**/.env
+
 #metadata fastlane
 **android/fastlane/metadata
 .metadata
